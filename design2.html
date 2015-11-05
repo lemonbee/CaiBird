@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CaiBird</title>
+    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
+    </script>
+    <script type="text/javascript" language="JavaScript" src="js/jquery-ui.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/indexcss.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/jquery.bootpag.min.js"></script>
+    <style type="text/css">
+    .active{
+        color: red;
+    }
+    a{
+        color: grey;
+    }
+    </style>
+    <script type="text/javascript">
+$(function() {
+  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+});
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="row titlehead">
+            <img src="img/logo.png" class="imglogo">
+        </div>
+        <nav class="navbar navhome">
+            <!-- <div class="container-fluid"> -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- <div class="collapse navbar-collapse"> -->
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">首页</a></li>
+                <li class="active"><a href="design.html">设计</a></li>
+                <li><a href="photo.html">摄像</a></li>
+                <li><a href="it.html">IT</a></li>
+                <li><a href="caibird.html">菜鸟课堂</a></li>
+                <li><a href="#">项目申请</a></li>
+                <li><a href="oldbird.html">老鸟客厅</a></li>
+                <li><a href="aboutus.html">加入我们</a></li>
+                <!-- </div> -->
+                <!-- /.navbar-collapse -->
+                <!-- </div> -->
+                <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="col-sm-3 col-md-2 col-sm-offset-2 col-md-offset-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li><h2><a href="design.html">全部</a></h2></li><hr/>
+            <li><h2><a href="design1.html">Web前端设计</a></h2></li><hr/>
+            <li><h2><a href="design2.html" class="active">平面设计</a></h2></li><hr/>
+            <li><h2><a href="design3.html">移动端设计</a></h2></li><hr/>
+            <li><h2><a href="design4.html">交互设计</a></h2></li><hr/>
+            <li><h2><a href="design5.html">编辑设计</a></h2></li><hr/>
+        </ul>
+    </div>
+<!--     <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-2 col-lg-offset-2">
+                <div class="row lefttexttitle"><strong>全部</strong></div>
+                <div class="row lefttextitem">今天发布</div>
+                <hr/>
+                <div class="row lefttextitem">一周发布</div>
+                <hr/>
+                <div class="row lefttextitem">本月发布</div>
+                <hr/>
+                <div class="row lefttextitem">更早</div>
+                <hr/>
+                <br>
+                <div class="row lefttexttitle"><strong>老鸟客厅</strong></div>
+                <hr/>
+                <div class="row aboutleftup">
+                    <img class="img-responsive leftimg" src="img/birds/bird1.png">
+                    <h2 class="leftbirdtext">IT老鸟</h2>
+                </div>
+                <hr/>
+                <div class="row aboutleftup">
+                    <img class="img-responsive leftimg" src="img/birds/bird2.png">
+                    <h2 class="leftbirdtext">摄影老鸟</h2>
+                </div>
+                <hr/>
+                <div class="row aboutleftup">
+                    <img class="img-responsive leftimg" src="img/birds/bird3.png">
+                    <h2 class="leftbirdtext">摄影老鸟</h2>
+                </div>
+            </div>
+            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-5">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <img class="img-responsive" src="img/project1.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <div class="row"><a href="designproject.html"><h1 class="protitle">电子商务网站</h1></a></div>
+                        <div class="row">
+                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
+                        </div>
+                        <div class="row">
+                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrright" />
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <img class="img-responsive" src="img/project2.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <div class="row">
+                            <a href="designproject.html">
+                                <h1 class="protitle">电子商务网站</h1></a>
+                        </div>
+                        <div class="row">
+                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
+                        </div>
+                        <div class="row">
+                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrright" />
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <img class="img-responsive" src="img/project3.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <div class="row">
+                            <a href="designproject.html">
+                                <h1 class="protitle">电子商务网站</h1></a>
+                        </div>
+                        <div class="row">
+                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
+                        </div>
+                        <div class="row">
+                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrright" />
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <img src="img/project4.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <div class="row">
+                            <a href="designproject.html">
+                                <h1 class="protitle">电子商务网站</h1></a>
+                        </div>
+                        <div class="row">
+                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
+                        </div>
+                        <div class="row">
+                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrright" />
+                <div id="page-selection"></div>
+            </div>
+        </div>
+    </div> -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        // var totalW = $('.rightpart').width();
+        // if (totalW < 800) {
+
+        //     var ratio = totalW/800;
+        //     var imgH = $(".aboutrightimg").height();
+        //     $(".aboutrightimg").height(imgH*ratio);
+        // };
+    })
+
+    $('#page-selection').bootpag({
+        total: 10,
+        maxVisible: 4,
+    }).on("page", function(event, num) {
+        alert("current page is" + num); // some ajax content loading...
+        var request = $.ajax({
+            url: 'http://121.40.113.6:8088/alltest/wsit',
+            method: 'GET',
+            data: {
+                currentPage: num
+            },
+            datatype: 'json'
+        });
+        request.done(function(data) {
+            alert(data);
+        });
+
+    });
+    </script>
+</body>
+
+</html>

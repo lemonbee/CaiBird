@@ -1,0 +1,421 @@
+      html,
+      body {
+          margin: 0px;
+          /*max-height: 100%;*/
+          width: 100%;
+          position: static;
+          background-color: #F7F7F7;
+      }
+      
+      hr {
+          margin-top: 4%;
+          margin-bottom: 4%;
+          margin-left: -5%;
+          width: 50%;
+      }
+      
+      .hrright {
+          margin-left: 0;
+          width: 95%;
+          text-align: center;
+      }
+      
+      .sidebar {
+          background-color: #ffffff;
+          width: 150px;
+      }
+      .contentarea{
+        width: 850px;
+        background-color: #ffffff;
+        margin: 5px;
+      }
+      
+      body,
+      button,
+      input,
+      select,
+      textarea,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+          font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+      }
+      
+      div {
+          margin: 0;
+          position: static;
+      }
+      
+      div#footrow {
+          margin-left: 0px;
+          margin-right: 0px;
+      }
+      
+      .header {
+          max-width: 100%;
+          position: static;
+      }
+      
+      .titlehead {
+          height: 10%;
+          color: #e94632;
+          padding-left: 16.7%;
+          max-width: 80%;
+      }
+      
+      .imglogo {
+          padding-top: 20px;
+          float: left;
+      }
+      
+      .navhome {
+          /*height: 10%;*/
+          padding-bottom: 1%;
+          width: 80%;
+          padding-left: 16.7%;
+          /*font-size: 14px;*/
+          margin-bottom: 0;
+          color: #e94632;
+      }
+      
+      .nav>li>a {
+          color: grey;
+          border-bottom: 2px solid white;
+      }
+
+      .nav>li>a:hover {
+          /*color: #e94632;*/
+          background-color: white;
+          border-bottom: 2px solid #e94632;
+      }
+      
+      .navbar-collapse.collapse {
+          display: block!important;
+      }
+      
+      .navbar-nav>li,
+      .navbar-nav {
+          float: left !important;
+      }
+      
+      .navbar-nav.navbar-right:last-child {
+          margin-right: -15px !important;
+      }
+      
+      .navbar-right {
+          float: right!important;
+      }
+      
+      .panel1 {
+          max-height: 502px;
+          width: 100%;
+          overflow: auto;
+          position: relative;
+      }
+      
+      .panel2 {
+          /*max-height: 354px;*/
+          vertical-align: center;
+          padding-top: 1%;
+          position: static;
+      }
+      
+      .funcgroup {
+          padding-top: 3%;
+          padding-left: 26%;
+          max-width: 73%;
+          padding-bottom: 3%;
+          text-align: center;
+      }
+      
+      .panel3 {
+          max-height: 662px;
+          background-color: #f2f2f2;
+          width: 100%;
+          position: relative;
+      }
+      
+      .birdsback {
+          text-align: center;
+          margin: 0 auto;
+          max-width: 100%;
+          position: relative;
+      }
+      
+      .caibird1 {
+          position: absolute;
+          left: 48%;
+          top: 23.2%;
+          z-index: 20;
+      }
+      
+      .caibird2 {
+          position: absolute;
+          left: 34.8%;
+          top: 41.1%;
+          z-index: 20
+      }
+      
+      .caibird3 {
+          position: absolute;
+          left: 31.8%;
+          top: 73.1%;
+      }
+      
+      .caibird4 {
+          position: absolute;
+          left: 61%;
+          top: 41.1%;
+      }
+      
+      .caibird5 {
+          position: absolute;
+          left: 65%;
+          top: 73.1%;
+      }
+      
+      .oldbird {
+          position: absolute;
+          left: 47.5%;
+          top: 62%;
+          border: 5px solid #2c3c42;
+      }
+      
+      .oldbirdtitle {
+          position: absolute;
+          left: 50%;
+          top: 84%;
+          color: white;
+      }
+      
+      .oldbirddes {
+          position: absolute;
+          left: 45%;
+          top: 90%;
+          color: white;
+          overflow: hidden;
+      }
+      
+      .workarea {
+          padding-bottom: 2%;
+      }
+      
+      .footer {
+          height: 15%;
+          /*position: relative;*/
+          position: static;
+          /*background-color: #293134;*/
+      }
+      
+      .footarea1 {
+          background-color: #3f4c50;
+          height: 5px
+      }
+      
+      .footarea2 {
+          background-color: #293134;
+          max-height: 14%;
+          color: white;
+          padding-bottom: 2%;
+      }
+      
+      .qrcode {
+          height: 100px;
+          padding-top: 2%;
+      }
+      
+      .carousel-inner > .item > img {
+          margin: 0 auto;
+          max-height: 502px;
+          width: 100%;
+      }
+      
+      .overcarousel {
+          color: #fff;
+          position: absolute;
+          max-height: 400px;
+          vertical-align: middle;
+          z-index: 12;
+          /*top:40%;*/
+          left: 0;
+          font-size: 2em;
+          /*max-height: w
+        /*width:100%;*/
+          */
+          /*display:inline-block ;*/
+          text-align: center;
+          opacity: 0.5;
+      }
+      
+      .overcarouselp1 {
+          background-color: #000000;
+          /*background-color: yellow;*/
+          margin-bottom: 20%;
+          max-height: 150px;
+          /*opacity:1;*/
+      }
+      
+      .overcarouselp2 {
+          /*background-color: green;*/
+          background-color: #000000;
+          /*opacity:1;*/
+      }
+      
+      .overcarouselp2 > h2 > a {
+          color: white;
+      }
+      
+      .overcarouselp1 > h1 > a {
+          color: white;
+      }
+      
+      .overcarouselp1 > h3 > a {
+          color: white;
+      }
+      
+      .lefttexttitle {
+          padding-top: 6%;
+          padding-bottom: 6%;
+          color: black;
+          font-size: 15px;
+      }
+      
+      .lefttexttitle:hover {
+          color: #ef2041;
+      }
+      
+      .lefttextitem {
+          color: #ef2041;
+          font-size: 15px;
+      }
+      
+      .lefttextitem:hover {
+          color: black;
+      }
+      
+      .leftimg {
+          display: inline;
+          max-width: 40px;
+      }
+      
+      .leftbirdtext {
+          display: inline;
+          padding-left: 5%;
+          color: #666666;
+      }
+      
+      .leftbirdtext:hover {
+          color: #ef2041;
+      }
+      
+      @media screen and (min-width: 1200px) {
+          p,
+          .btn,
+          input,
+          div,
+          span,
+          h4 {
+              font-size: 95%;
+          }
+          h1 {
+              font-size: 20px;
+              overflow: hidden;
+          }
+          h2,
+          a {
+              font-size: 16px;
+              overflow: hidden;
+          }
+          h3 {
+              font-size: 12px;
+              overflow: hidden;
+          }
+          .overcarousel {
+              padding-top: 10%;
+          }
+      }
+      
+      @media screen and (min-width: 992px) {
+          p,
+          .btn,
+          input,
+          div,
+          span,
+          h4 {
+              font-size: 95%;
+          }
+          h1 {
+              font-size: 1.5em;
+              overflow: hidden;
+          }
+          h2,
+          a {
+              font-size: 1.2em;
+              overflow: hidden;
+          }
+          h3 {
+              font-size: 1em;
+              overflow: hidden;
+          }
+          .overcarousel {
+              padding-top: 10%;
+          }
+      }
+      
+      @media screen and (min-width: 768px) {
+          p,
+          .btn,
+          input,
+          div,
+          span,
+          h4 {
+              font-size: 90%;
+          }
+          h1 {
+              font-size: 19px;
+              overflow: hidden;
+          }
+          h2,
+          a {
+              font-size: 15px;
+              overflow: hidden;
+          }
+          h3 {
+              font-size: 11px;
+              overflow: hidden;
+          }
+          .overcarousel {
+              padding-top: 7%;
+          }
+      }
+      
+      @media screen and (max-width: 767px) {
+          p,
+          .btn,
+          input,
+          div,
+          span,
+          h4 {
+              font-size: 90%;
+          }
+          h1 {
+              font-size: 15px;
+              /*overflow: hidden; */
+          }
+          h2,
+          a {
+              font-size: 11px;
+              /*overflow: hidden; */
+          }
+          h3 {
+              font-size: 7px;
+              /*overflow: hidden; */
+          }
+          .overcarousel {
+              padding-top: 2%;
+              overflow: hidden;
+          }
+      }
