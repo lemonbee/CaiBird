@@ -24,10 +24,11 @@
           background-color: #ffffff;
           width: 150px;
       }
-      .contentarea{
-        width: 850px;
-        background-color: #ffffff;
-        margin: 5px;
+      
+      .contentarea {
+          width: 850px;
+          background-color: #ffffff;
+          margin: 5px;
       }
       
       body,
@@ -57,6 +58,7 @@
       .header {
           max-width: 100%;
           position: static;
+          background-color: white
       }
       
       .titlehead {
@@ -77,19 +79,22 @@
           width: 80%;
           padding-left: 16.7%;
           /*font-size: 14px;*/
-          margin-bottom: 0;
-          color: #e94632;
+          margin-bottom: 1%;
+          color: #DBDBDB;
+          border-bottom: 1px solid;
       }
       
       .nav>li>a {
           color: grey;
-          border-bottom: 2px solid white;
+          /*border-bottom: 2px solid #DBDBDB;*/
       }
-
+      
       .nav>li>a:hover {
           /*color: #e94632;*/
+          /*background-color: red;*/
+          color:red;
           background-color: white;
-          border-bottom: 2px solid #e94632;
+          /*border-bottom: 2px solid #e94632;*/
       }
       
       .navbar-collapse.collapse {
