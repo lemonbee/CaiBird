@@ -116,6 +116,21 @@
 
     app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
         $scope.items = [{
+            itemTitle: "辣妹狂拍",
+            headCount: "4人",
+            timeLength: "2个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "幼师口袋",
+            headCount: "5人",
+            timeLength: "3个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "幼师口袋",
+            headCount: "5人",
+            timeLength: "3个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
             itemTitle: "去哪儿携程",
             headCount: "4人",
             timeLength: "2个月",
@@ -155,6 +170,20 @@
         $scope.totalItems = $scope.items.length;
         $scope.entryLimit = 5; // items per page
         $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+        $scope.test = function() {
+            // alert("Hello Alice");
+            $scope.items = [{
+                itemTitle: "辣妹狂拍",
+                headCount: "4人",
+                timeLength: "2个月",
+                itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+            }, {
+                itemTitle: "幼师口袋",
+                headCount: "5人",
+                timeLength: "3个月",
+                itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+            }];
+        }
 
         // $watch search to update pagination
         $scope.$watch('search', function(newVal, oldVal) {
@@ -163,6 +192,7 @@
             $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
             $scope.currentPage = 1;
         }, true);
+
     }]);
     </script>
 </head>
@@ -197,26 +227,26 @@
                     <h2><a href="design2.html" >平面设计</a></h2></li>
                 <hr/>
                 <li>
-                    <h2><a href="design3.html" class="active">移动端设计</a></h2></li>
+                    <h2><a href="design3.html">移动端设计</a></h2></li>
                 <hr/>
                 <li>
                     <h2><a href="design4.html">交互设计</a></h2></li>
                 <hr/>
                 <li>
-                    <h2><a href="design5.html">编辑设计</a></h2></li>
+                    <h2><a href="design5.html" class="active" >编辑设计</a></h2></li>
             </ul>
         </div>
-        <div class="contentarea">
+        <div class="contentarea" ng-app="myApp" ng-controller="PageCtrl">
             <div class="contentfilter">
                 <div class="btn-group">
-                    <button class="btn btn-default btn-lg">有趣项目</button>
+                    <button class="btn btn-default btn-lg" ng-click="test()">有趣项目</button>
                     <button class="btn btn-default btn-lg">商业项目</button>
                     <button class="btn btn-default btn-lg">公益项目</button>
                     <button class="btn btn-default btn-lg">创业项目</button>
                 </div>
             </div>
             <hr>
-            <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+            <div  class="items">
                 <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                     <img class="img-responsive itemimg" src="img/design1.png" alt="">
                     <div class="itemdesc">

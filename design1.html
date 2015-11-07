@@ -8,25 +8,167 @@
     <title>CaiBird</title>
     <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
     </script>
-    <script type="text/javascript" language="JavaScript" src="js/jquery-ui.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/indexcss.css">
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/jquery.bootpag.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
     <style type="text/css">
-    .active{
+    .active {
         color: red;
     }
-    a{
+    
+    a {
         color: grey;
     }
+    
+    body {
+        text-align: center;
+    }
+    
+    .itemtext {
+        font-size: 1.6em;
+        padding-bottom: 0px;
+    }
+    
+    hr {
+        /*margin: 1%;*/
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 1%;
+        width: 95%;
+    }
+    
+    .page {
+        width: 70%;
+        margin: 0 auto;
+        text-align: left;
+        display: block;
+    }
+    
+    .sidebar {
+        background-color: #ffffff;
+        width: 17%;
+        padding-left: 2%;
+        margin-right: 2%;
+        border: 1px solid #DBDBDB;
+        float: left;
+        overflow-y: auto;
+    }
+    
+    .contentarea {
+        width: 78%;
+        margin: 0 auto;
+        float: right;
+        border: 1px solid #DBDBDB;
+    }
+    
+    .btn-group {
+        font-size: 1.6em;
+    }
+    
+    .btn {
+        border-radius: 0;
+        border: 0;
+        color: #333;
+    }
+    
+    .btn:hover {
+        background-color: #c9302c;
+        opacity: 0.8;
+        color: white;
+    }
+    
+    .itemimg {
+        width: 18%;
+        /*height: px;*/
+        float: left;
+    }
+    
+    .itemdesc {
+        width: 78%;
+        float: right;
+    }
+    
+    .itemtitle {
+        font-size: 1.6em;
+    }
+    
+    .item {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
     </style>
-    <script type="text/javascript">
-$(function() {
-  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
-});
+    <script>
+    var app = angular.module('myApp', ['ui.bootstrap']);
+
+
+    app.filter('startFrom', function() {
+        return function(input, start) {
+            if (input) {
+                start = +start;
+                return input.slice(start);
+            }
+            return [];
+        };
+    });
+
+    app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
+        $scope.items = [{
+            itemTitle: "去哪儿携程",
+            headCount: "4人",
+            timeLength: "2个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "幼师口袋",
+            headCount: "5人",
+            timeLength: "3个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "阿里云计划",
+            headCount: "18人",
+            timeLength: "3个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "辣妹狂拍",
+            headCount: "4人",
+            timeLength: "2个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "福特终端系统",
+            headCount: "4人",
+            timeLength: "2个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }, {
+            itemTitle: "福特终端系统",
+            headCount: "4人",
+            timeLength: "2个月",
+            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+        }];
+
+        // create empty search model (object) to trigger $watch on update
+        $scope.search = {};
+
+        $scope.resetFilters = function() {
+            // needs to be a function or it won't trigger a $watch
+            $scope.search = {};
+        };
+
+        // pagination controls
+        $scope.currentPage = 1;
+        $scope.totalItems = $scope.items.length;
+        $scope.entryLimit = 5; // items per page
+        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+
+        // $watch search to update pagination
+        $scope.$watch('search', function(newVal, oldVal) {
+            $scope.filtered = filterFilter($scope.items, newVal);
+            $scope.totalItems = $scope.filtered.length;
+            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+            $scope.currentPage = 1;
+        }, true);
+    }]);
     </script>
 </head>
 
@@ -36,9 +178,6 @@ $(function() {
             <img src="img/logo.png" class="imglogo">
         </div>
         <nav class="navbar navhome">
-            <!-- <div class="container-fluid"> -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <!-- <div class="collapse navbar-collapse"> -->
             <ul class="nav navbar-nav">
                 <li><a href="index.html">首页</a></li>
                 <li class="active"><a href="design.html">设计</a></li>
@@ -48,157 +187,55 @@ $(function() {
                 <li><a href="#">项目申请</a></li>
                 <li><a href="oldbird.html">老鸟客厅</a></li>
                 <li><a href="aboutus.html">加入我们</a></li>
-                <!-- </div> -->
-                <!-- /.navbar-collapse -->
-                <!-- </div> -->
-                <!-- /.container-fluid -->
         </nav>
     </div>
-    <div class="col-sm-3 col-md-2 col-sm-offset-2 col-md-offset-2 sidebar">
-        <ul class="nav nav-sidebar">
-            <li><h2><a href="design.html">全部</a></h2></li><hr/>
-            <li><h2><a href="design1.html" class="active">Web前端设计</a></h2></li><hr/>
-            <li><h2><a href="design2.html">平面设计</a></h2></li><hr/>
-            <li><h2><a href="design3.html">移动端设计</a></h2></li><hr/>
-            <li><h2><a href="design4.html">交互设计</a></h2></li><hr/>
-            <li><h2><a href="design5.html">编辑设计</a></h2></li><hr/>
-        </ul>
-    </div>
-<!--     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-2 col-lg-offset-2">
-                <div class="row lefttexttitle"><strong>全部</strong></div>
-                <div class="row lefttextitem">今天发布</div>
+    <div class="page">
+        <div class="sidebar">
+            <ul class="nav nav-sidebar">
+                <li>
+                    <h2><a href="design.html">全部</a></h2></li>
                 <hr/>
-                <div class="row lefttextitem">一周发布</div>
+                <li>
+                    <h2><a href="design1.html" class="active">Web前端设计</a></h2></li>
                 <hr/>
-                <div class="row lefttextitem">本月发布</div>
+                <li>
+                    <h2><a href="design2.html">平面设计</a></h2></li>
                 <hr/>
-                <div class="row lefttextitem">更早</div>
+                <li>
+                    <h2><a href="design3.html">移动端设计</a></h2></li>
                 <hr/>
-                <br>
-                <div class="row lefttexttitle"><strong>老鸟客厅</strong></div>
+                <li>
+                    <h2><a href="design4.html">交互设计</a></h2></li>
                 <hr/>
-                <div class="row aboutleftup">
-                    <img class="img-responsive leftimg" src="img/birds/bird1.png">
-                    <h2 class="leftbirdtext">IT老鸟</h2>
-                </div>
-                <hr/>
-                <div class="row aboutleftup">
-                    <img class="img-responsive leftimg" src="img/birds/bird2.png">
-                    <h2 class="leftbirdtext">摄影老鸟</h2>
-                </div>
-                <hr/>
-                <div class="row aboutleftup">
-                    <img class="img-responsive leftimg" src="img/birds/bird3.png">
-                    <h2 class="leftbirdtext">摄影老鸟</h2>
+                <li>
+                    <h2><a href="design5.html">编辑设计</a></h2></li>
+            </ul>
+        </div>
+        <div class="contentarea">
+            <div class="contentfilter">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-lg">有趣项目</button>
+                    <button class="btn btn-default btn-lg">商业项目</button>
+                    <button class="btn btn-default btn-lg">公益项目</button>
+                    <button class="btn btn-default btn-lg">创业项目</button>
                 </div>
             </div>
-            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-5">
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img class="img-responsive" src="img/project1.jpg" class="img-responsive">
+            <hr>
+            <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+                <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                    <img class="img-responsive itemimg" src="img/design1.png" alt="">
+                    <div class="itemdesc">
+                        <p class="itemtitle">{{itemline.itemTitle}}</p>
+                        <p class="itemtext"><span>项目需求人数:</span><span>{{itemline.headCount}} &nbsp | &nbsp</span>
+                            <span>项目周期:</span><span>{{itemline.timeLength}}</span></p>
+                        <p class="itemtext"><span>{{itemline.itemLongtext}}</span></p>
                     </div>
-                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                        <div class="row"><a href="designproject.html"><h1 class="protitle">电子商务网站</h1></a></div>
-                        <div class="row">
-                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
-                        </div>
-                        <div class="row">
-                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
-                        </div>
-                    </div>
+                    <hr>
                 </div>
-                <hr class="hrright" />
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img class="img-responsive" src="img/project2.jpg" class="img-responsive">
-                    </div>
-                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                        <div class="row">
-                            <a href="designproject.html">
-                                <h1 class="protitle">电子商务网站</h1></a>
-                        </div>
-                        <div class="row">
-                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
-                        </div>
-                        <div class="row">
-                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
-                        </div>
-                    </div>
-                </div>
-                <hr class="hrright" />
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img class="img-responsive" src="img/project3.jpg" class="img-responsive">
-                    </div>
-                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                        <div class="row">
-                            <a href="designproject.html">
-                                <h1 class="protitle">电子商务网站</h1></a>
-                        </div>
-                        <div class="row">
-                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
-                        </div>
-                        <div class="row">
-                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
-                        </div>
-                    </div>
-                </div>
-                <hr class="hrright" />
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img src="img/project4.jpg" class="img-responsive">
-                    </div>
-                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                        <div class="row">
-                            <a href="designproject.html">
-                                <h1 class="protitle">电子商务网站</h1></a>
-                        </div>
-                        <div class="row">
-                            <h2 class="prosize">项目需求人数：5人 项目周期： 2个月</h2>
-                        </div>
-                        <div class="row">
-                            <h3 class="prodes">项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊项目描述怎么写啊</h3>
-                        </div>
-                    </div>
-                </div>
-                <hr class="hrright" />
-                <div id="page-selection"></div>
+                <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
             </div>
         </div>
-    </div> -->
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        // var totalW = $('.rightpart').width();
-        // if (totalW < 800) {
-
-        //     var ratio = totalW/800;
-        //     var imgH = $(".aboutrightimg").height();
-        //     $(".aboutrightimg").height(imgH*ratio);
-        // };
-    })
-
-    $('#page-selection').bootpag({
-        total: 10,
-        maxVisible: 4,
-    }).on("page", function(event, num) {
-        alert("current page is" + num); // some ajax content loading...
-        var request = $.ajax({
-            url: 'http://121.40.113.6:8088/alltest/wsit',
-            method: 'GET',
-            data: {
-                currentPage: num
-            },
-            datatype: 'json'
-        });
-        request.done(function(data) {
-            alert(data);
-        });
-
-    });
-    </script>
+    </div>
 </body>
 
 </html>
