@@ -11,11 +11,11 @@
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
     <!-- Angular Scripts -->
- 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
+
 
     app.filter('startFrom', function() {
         return function(input, start) {
@@ -28,7 +28,7 @@
     });
 
     app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
-         $scope.items = [{
+        $scope.items = [{
             itemTitle: "幼师口袋",
             headCount: "5人",
             timeLength: "2个月",
@@ -81,7 +81,7 @@
         // pagination controls
         $scope.currentPage = 1;
         $scope.totalItems = $scope.items.length;
-        $scope.entryLimit = 5; // items per page
+        $scope.entryLimit = 2; // items per page
         $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
 
         // $watch search to update pagination
@@ -96,18 +96,19 @@
 </head>
 
 <body>
-    <div ng-controller="PageCtrl">
-        <div ng-controller="PageCtrl">
-            <label>Search:</label>
-            <input type="text" ng-model="search.name" placeholder="Search" />
-            <br />
-            <p><strong><a href="" ng-click="resetFilters()">Show All</a></strong></p>
-            <h1>Items</h1>
-            <ul>
-                <li ng-repeat="item in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">{{item.itemTitle}}</li>
-            </ul>
-            <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+    <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+        <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+            <img class="img-responsive itemimg" src="img/design1.png" alt="">
+            <div class="itemdesc">
+                <p class="itemtitle">{{itemline.itemTitle}}</p>
+                <p class="itemtext"><span>项目需求人数:</span><span>{{itemline.headCount}} &nbsp | &nbsp</span>
+                    <span>项目周期:</span><span>{{itemline.timeLength}}</span></p>
+                <p class="itemtext"><span>{{itemline.itemLongtext}}</span></p>
+            </div>
+            <hr>
         </div>
+        <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+    </div>
 </body>
 
 </html>
