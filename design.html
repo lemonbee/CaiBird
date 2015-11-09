@@ -101,6 +101,10 @@
     }
     </style>
     <script>
+    // var sidebarapp = angular.module('mySidebar',[]);
+
+
+
     var app = angular.module('myApp', ['ui.bootstrap']);
 
 
@@ -179,6 +183,12 @@
             $scope.currentPage = 1;
         }, true);
     }]);
+
+    app.controller('SidebarCtrl', function($scope,$http){
+        $http.get('http://121.40.113.6:8080/cbws/GetTagSet?type=TAGV&projectType=DESIGN').success(function(data){
+            $scope.items = data;
+        });
+    });
     </script>
 </head>
 
@@ -199,26 +209,27 @@
                 <li><a href="aboutus.html">加入我们</a></li>
         </nav>
     </div>
-    <div class="page">
-        <div class="sidebar">
+    <div class="page" ng-app="myApp">
+        <div class="sidebar" ng-controller="SidebarCtrl">
             <ul class="nav nav-sidebar">
                 <li>
                     <h2><a href="design.html" class="active">全部</a></h2></li>
                 <hr/>
-                <li>
-                    <h2><a href="design1.html">Web前端设计</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="design2.html">平面设计</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="design3.html">移动端设计</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="design4.html">交互设计</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="design5.html">编辑设计</a></h2></li>
+                <li ng-repeat="tag in items">
+                    <h2><a href="design1.html">{{tag.tag}}</a></h2></li>
+  <!-- <hr/>
+<li>    
+    <h2><a href="design2.html">平面设计</a></h2></li>
+<hr/>
+<li>
+    <h2><a href="design3.html">移动端设计</a></h2></li>
+<hr/>
+<li>
+    <h2><a href="design4.html">交互设计</a></h2></li>
+<hr/>
+<li>
+    <h2><a href="design5.html">编辑设计</a></h2></li>
+ -->
             </ul>
         </div>
         <div class="contentarea">
@@ -231,7 +242,7 @@
                 </div>
             </div>
             <hr>
-            <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+            <div  ng-controller="PageCtrl" class="items">
                 <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                     <img class="img-responsive itemimg" src="img/design1.png" alt="">
                     <div class="itemdesc">
