@@ -185,7 +185,7 @@
     }]);
 
     app.controller('SidebarCtrl', function($scope,$http){
-        $http.get('http://121.40.113.6:8080/cbws/GetTagSet?type=TAGV&projectType=DESIGN').success(function(data){
+        $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data){
             $scope.items = data;
         });
     });
