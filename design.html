@@ -121,6 +121,12 @@
     app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, $http, filterFilter) {
         $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN').success(function(data) {
             $scope.items = data;
+            // pagination controls
+            $scope.currentPage = 1;
+            $scope.totalItems = $scope.items.length;
+            $scope.entryLimit = 5; // items per page
+            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+
         });
 
         // $scope.items = [{
@@ -173,11 +179,6 @@
             $scope.search = {};
         };
 
-        // pagination controls
-        $scope.currentPage = 1;
-        $scope.totalItems = $scope.items.length;
-        $scope.entryLimit = 5; // items per page
-        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
 
         // $watch search to update pagination
         $scope.$watch('search', function(newVal, oldVal) {
