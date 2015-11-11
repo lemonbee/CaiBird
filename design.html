@@ -118,7 +118,7 @@
         };
     });
 
-    app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
+    app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, filterFilter) {
         $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN').success(function(data) {
             $scope.items = data;
         });
