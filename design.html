@@ -127,6 +127,24 @@
             $scope.entryLimit = 5; // items per page
             $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
 
+
+            // create empty search model (object) to trigger $watch on update
+            $scope.search = {};
+
+            $scope.resetFilters = function() {
+                // needs to be a function or it won't trigger a $watch
+                $scope.search = {};
+            };
+
+
+            // $watch search to update pagination
+            $scope.$watch('search', function(newVal, oldVal) {
+                $scope.filtered = filterFilter($scope.items, newVal);
+                $scope.totalItems = $scope.filtered.length;
+                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+                $scope.currentPage = 1;
+            }, true);
+
         });
 
         // $scope.items = [{
@@ -171,22 +189,6 @@
         //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
         // }];
 
-        // create empty search model (object) to trigger $watch on update
-        $scope.search = {};
-
-        $scope.resetFilters = function() {
-            // needs to be a function or it won't trigger a $watch
-            $scope.search = {};
-        };
-
-
-        // $watch search to update pagination
-        $scope.$watch('search', function(newVal, oldVal) {
-            $scope.filtered = filterFilter($scope.items, newVal);
-            $scope.totalItems = $scope.filtered.length;
-            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-            $scope.currentPage = 1;
-        }, true);
     }]);
 
     app.controller('SidebarCtrl', function($scope, $http) {
