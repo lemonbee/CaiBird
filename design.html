@@ -147,48 +147,11 @@
 
         });
 
-        // $scope.items = [{
-        //     itemTitle: "幼师口袋",
-        //     headCount: "5人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "阿里云计划",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "去哪儿携程",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "福特终端系统",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "辣妹狂拍",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "福特终端系统",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "福特终端系统",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }, {
-        //     itemTitle: "福特终端系统",
-        //     headCount: "4人",
-        //     timeLength: "2个月",
-        //     itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        // }];
-
+        function dipbyTagV($scope, $http) {
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
+                $scope.items = data;
+            })
+        }
     }]);
 
     app.controller('SidebarCtrl', function($scope, $http) {
@@ -224,7 +187,7 @@
                 <hr/>
                 <div ng-repeat="tag in items">
                     <li>
-                        <h2><a href="design1.html">{{tag.tag}}</a></h2></li>
+                        <h2><a href="design1.html" ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li>
                     <hr/>
                 </div>
             </ul>
