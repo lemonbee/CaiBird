@@ -101,9 +101,6 @@
     }
     </style>
     <script>
-
-
-
     var app = angular.module('myApp', ['ui.bootstrap']);
 
 
@@ -130,6 +127,11 @@
             $scope.totalItems = $scope.items.length;
             $scope.entryLimit = 5; // items per page
             $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+            if ($scope.noOfPages == 0) {
+                $scope.paginationshow = false;
+            } else {
+                $scope.paginationshow = true;
+            };
 
 
             // create empty search model (object) to trigger $watch on update
@@ -147,18 +149,22 @@
                 $scope.totalItems = $scope.filtered.length;
                 $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
                 $scope.currentPage = 1;
+                if ($scope.noOfPages == 0) {
+                    $scope.paginationshow = false;
+                } else {
+                    $scope.paginationshow = true;
+                };
             }, true);
 
         });
 
         $scope.dipbyTagV = function(name) {
             // alert("Hello Alice");
-            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv='+name).success(function(data) {
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=' + name).success(function(data) {
                 $scope.items = data;
             });
         };
     }]);
-
     </script>
 </head>
 
