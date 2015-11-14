@@ -119,6 +119,7 @@
     });
 
     app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, $http, filterFilter) {
+
         $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN').success(function(data) {
             $scope.items = data;
             // pagination controls
@@ -147,13 +148,6 @@
 
         });
 
-        $scope.dipbyTagV = function() {
-            alert("Hello Alice");
-              $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
-                $scope.items = data;
-            })
-        }
-
         // function dipbyTagV($scope, $http) {
             
           
@@ -164,6 +158,13 @@
         $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
             $scope.items = data;
         });
+        
+        $scope.dipbyTagV = function() {
+            alert("Hello Alice");
+              $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
+                $scope.items = data;
+            })
+        }
     });
     </script>
 </head>
@@ -189,17 +190,17 @@
         <div class="sidebar" ng-controller="SidebarCtrl">
             <ul class="nav nav-sidebar">
                 <li>
-                    <h2><a href="design.html" class="active" ng-click="dipbyTagV()">全部</a></h2></li>
+                    <h2><a href="design.html" class="active">全部</a></h2></li>
                 <hr/>
-          <!--       <div ng-repeat="tag in items">
+                <div ng-repeat="tag in items">
                     <li>
                         <h2 ng-click="dipbyTagV()">{{tag.tag}}</h2></li>
-                        <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li>
-                        <button ng-click="dipbyTagV()">Test </button>
+                        <!-- <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li> -->
+                        <!-- <button ng-click="dipbyTagV()">Test </button> -->
 
 
                     <hr/>
-                </div> -->
+                </div>
             </ul>
         </div>
         <div class="contentarea">
