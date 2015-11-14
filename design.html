@@ -128,9 +128,9 @@
             $scope.entryLimit = 5; // items per page
             $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
             if ($scope.noOfPages == 0) {
-                $scope.paginationshow = false;
+                $scope.paginationShow = false;
             } else {
-                $scope.paginationshow = true;
+                $scope.paginationShow = true;
             };
 
 
@@ -150,9 +150,9 @@
                 $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
                 $scope.currentPage = 1;
                 if ($scope.noOfPages == 0) {
-                    $scope.paginationshow = false;
+                    $scope.paginationShow = false;
                 } else {
-                    $scope.paginationshow = true;
+                    $scope.paginationShow = true;
                 };
             }, true);
 
@@ -221,7 +221,7 @@
                     </div>
                     <hr>
                 </div>
-                <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+                <pagination ng-show="paginationShow" page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
             </div>
         </div>
     </div>
