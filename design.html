@@ -120,59 +120,59 @@
 
     app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, $http, filterFilter) {
 
-                $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
-                    $scope.tagitems = data;
-                });
+        $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
+            $scope.tagitems = data;
+        });
 
-                $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN').success(function(data) {
-                    $scope.items = data;
-                    // pagination controls
-                    $scope.currentPage = 1;
-                    $scope.totalItems = $scope.items.length;
-                    $scope.entryLimit = 5; // items per page
-                    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-
-
-                    // create empty search model (object) to trigger $watch on update
-                    $scope.search = {};
-
-                    $scope.resetFilters = function() {
-                        // needs to be a function or it won't trigger a $watch
-                        $scope.search = {};
-                    };
+        $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN').success(function(data) {
+            $scope.items = data;
+            // pagination controls
+            $scope.currentPage = 1;
+            $scope.totalItems = $scope.items.length;
+            $scope.entryLimit = 5; // items per page
+            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
 
 
-                    // $watch search to update pagination
-                    $scope.$watch('search', function(newVal, oldVal) {
-                        $scope.filtered = filterFilter($scope.items, newVal);
-                        $scope.totalItems = $scope.filtered.length;
-                        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-                        $scope.currentPage = 1;
-                    }, true);
+            // create empty search model (object) to trigger $watch on update
+            $scope.search = {};
 
-                });
+            $scope.resetFilters = function() {
+                // needs to be a function or it won't trigger a $watch
+                $scope.search = {};
+            };
 
-                $scope.dipbyTagV = function() {
-                    alert("Hello Alice");
-                    $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
-                        $scope.items = data;
-                    });
-                };
 
+            // $watch search to update pagination
+            $scope.$watch('search', function(newVal, oldVal) {
+                $scope.filtered = filterFilter($scope.items, newVal);
+                $scope.totalItems = $scope.filtered.length;
+                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+                $scope.currentPage = 1;
+            }, true);
+
+        });
+
+        $scope.dipbyTagV = function() {
+            alert("Hello Alice");
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
+                $scope.items = data;
             });
+        };
 
-            // app.controller('SidebarCtrl', function($scope, $http) {
-            //     $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
-            //         $scope.items = data;
-            //     });
+    }]);
 
-            //     $scope.dipbyTagV = function() {
-            //         alert("Hello Alice");
-            //           $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
-            //             $scope.items = data;
-            //         })
-            //     }
-            // });
+    // app.controller('SidebarCtrl', function($scope, $http) {
+    //     $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
+    //         $scope.items = data;
+    //     });
+
+    //     $scope.dipbyTagV = function() {
+    //         alert("Hello Alice");
+    //           $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
+    //             $scope.items = data;
+    //         })
+    //     }
+    // });
     </script>
 </head>
 
