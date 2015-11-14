@@ -101,7 +101,6 @@
     }
     </style>
     <script>
-    // var sidebarapp = angular.module('mySidebar',[]);
 
 
 
@@ -158,21 +157,8 @@
                 $scope.items = data;
             });
         };
-
     }]);
 
-    // app.controller('SidebarCtrl', function($scope, $http) {
-    //     $http.get('http://121.40.113.6/api/GetTagSet?projectType=DESIGN').success(function(data) {
-    //         $scope.items = data;
-    //     });
-
-    //     $scope.dipbyTagV = function() {
-    //         alert("Hello Alice");
-    //           $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
-    //             $scope.items = data;
-    //         })
-    //     }
-    // });
     </script>
 </head>
 
@@ -199,7 +185,7 @@
                 <li>
                     <h2><a href="design.html" class="active">全部</a></h2></li>
                 <hr/>
-                <div ng-repeat="tag in ta tagitems">
+                <div ng-repeat="tag in tagitems">
                     <li>
                         <h2 ng-click="dipbyTagV()">{{tag.tag}}</h2></li>
                     <!-- <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li> -->
