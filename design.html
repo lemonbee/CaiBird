@@ -151,9 +151,9 @@
 
         });
 
-        $scope.dipbyTagV = function() {
-            alert("Hello Alice");
-            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=交互设计').success(function(data) {
+        $scope.dipbyTagV = function(name) {
+            // alert("Hello Alice");
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv='+name).success(function(data) {
                 $scope.items = data;
             });
         };
@@ -187,7 +187,7 @@
                 <hr/>
                 <div ng-repeat="tag in tagitems">
                     <li>
-                        <h2 ng-click="dipbyTagV()">{{tag.tag}}</h2></li>
+                        <h2 ng-click="dipbyTagV(tag.tag)">{{tag.tag}}</h2></li>
                     <!-- <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li> -->
                     <!-- <button ng-click="dipbyTagV()">Test </button> -->
                     <hr/>
