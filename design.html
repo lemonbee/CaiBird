@@ -127,7 +127,7 @@
             $scope.totalItems = $scope.items.length;
             $scope.entryLimit = 5; // items per page
             $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-            if ($scope.noOfPages == 0) {
+            if ($scope.noOfPages < 2) {
                 $scope.paginationShow = false;
             } else {
                 $scope.paginationShow = true;
@@ -149,7 +149,7 @@
                 $scope.totalItems = $scope.filtered.length;
                 $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
                 $scope.currentPage = 1;
-                if ($scope.noOfPages == 0) {
+                if ($scope.noOfPages < 2) {
                     $scope.paginationShow = false;
                 } else {
                     $scope.paginationShow = true;
@@ -164,7 +164,7 @@
                 $scope.items = data;
                 $scope.totalItems = $scope.items.length;
                 $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-                if ($scope.noOfPages == 0) {
+                if ($scope.noOfPages < 2) {
                     $scope.paginationShow = false;
                 } else {
                     $scope.paginationShow = true;
