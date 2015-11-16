@@ -99,6 +99,30 @@
         margin-left: 2%;
         margin-right: 2%;
     }
+    
+    .pagination {
+        padding-right: 5%;
+        float: right;
+    }
+    
+    .pagination>li>a,
+    .pagination>li>span {
+        border: 0px;
+        color: Gray;
+        font-size: 1em;
+    }
+    
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover {
+        background-color: LightGray;
+        font-size: 1em;
+    }
+    
+    .pagination>.active>a,
+    .pagination>.active>span {
+        background-color: DarkGrey;
+        font-size: 1em;
+    }
     </style>
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
@@ -221,7 +245,7 @@
             </ul>
         </div>
         <div class="contentarea">
-<!--             <div class="contentfilter">
+            <!--             <div class="contentfilter">
                 <div class="btn-group">
                     <button class="btn btn-default btn-lg">有趣项目</button>
                     <button class="btn btn-default btn-lg">商业项目</button>
