@@ -99,6 +99,23 @@
         margin-left: 2%;
         margin-right: 2%;
     }
+    .pagination>li>a,
+    .pagination>li>span {
+        border: 0px;
+        color: LightGray;
+        font-size: 1em;
+    }
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover {
+        background-color: LightGray;
+        font-size: 1em;
+    }
+    .pagination>.active>a,
+    .pagination>.active>span
+     {
+        background-color: LightGray;
+        font-size: 1em;
+    }
     </style>
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
