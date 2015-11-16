@@ -170,22 +170,22 @@
         $scope.totalItems = $scope.items.length;
         $scope.entryLimit = 5; // items per page
         $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-        $scope.test = function() {
-            // alert("Hello Alice");
-            $scope.items = [{
-                itemTitle: "辣妹狂拍",
-                headCount: "4人",
-                timeLength: "2个月",
-                itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-            }, {
-                itemTitle: "幼师口袋",
-                headCount: "5人",
-                timeLength: "3个月",
-                itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-            }];
-        }
 
-        // $watch search to update pagination
+        $scope.test = function() {
+                // alert("Hello Alice");
+                $scope.items = [{
+                    itemTitle: "辣妹狂拍",
+                    headCount: "4人",
+                    timeLength: "2个月",
+                    itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+                }, {
+                    itemTitle: "幼师口袋",
+                    headCount: "5人",
+                    timeLength: "3个月",
+                    itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
+                }];
+            }
+            // $watch search to update pagination
         $scope.$watch('search', function(newVal, oldVal) {
             $scope.filtered = filterFilter($scope.items, newVal);
             $scope.totalItems = $scope.filtered.length;
@@ -246,7 +246,7 @@
                 </div>
             </div>
             <hr>
-            <div  class="items">
+            <div class="items">
                 <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                     <img class="img-responsive itemimg" src="img/design1.png" alt="">
                     <div class="itemdesc">

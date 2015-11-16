@@ -162,6 +162,13 @@
             // alert("Hello Alice");
             $http.get('http://121.40.113.6/api/GetProjectSet?projectType=DESIGN&tagv=' + name).success(function(data) {
                 $scope.items = data;
+                $scope.totalItems = $scope.items.length;
+                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+                if ($scope.noOfPages == 0) {
+                    $scope.paginationShow = false;
+                } else {
+                    $scope.paginationShow = true;
+                };
             });
         };
     }]);
