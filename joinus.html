@@ -63,8 +63,9 @@
         float: right;
         border: 1px solid #DBDBDB;
     }
-
-    .contentarea span, .contentarea input{
+    
+    .contentarea span,
+    .contentarea input {
         font-size: 1.4em;
         margin-top: 2%;
         margin-left: 5%;
@@ -72,15 +73,20 @@
         margin-bottom: 1%;
         padding-bottom: 1%;
     }
-    .contentarea textarea{
+    
+    .contentarea textarea {
         margin-top: 2%;
+        margin-left: 5%;
+        border: 1px solid rgb(199, 193, 193);
     }
-    .contentarea span{
-        width: 30%;
-    }
-    .joinbtn{
-        margin-left: 35%;
+    
+    .joinbtn {
+        margin-left: 22%;
         margin-top: 3%;
+        margin-bottom: 3%;
+        border: 0px;
+        width: 18%;
+        font-size: 1.4em
     }
     </style>
 </head>
@@ -119,32 +125,45 @@
                     <hr/>
                     <li>
                         <h2><a href="joinus.html" class="active">加入我们</a></h2></li>
-                    <hr/>
+
                 </ul>
             </div>
             <div class="contentarea">
-                <span>
+            <br/>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     姓名：</span>
-                <input type="text"></br>
-                <span>
+                    <input type="text" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     手机：</span>
-                <input type="text"></br>
-                <span>
+                    <input type="text" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     邮箱：</span>
-                <input type="text"></br>
-                <span>
+                    <input type="text" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     QQ：</span>
-                <input type="text"></br>
-                <span>
+                    <input type="text" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     居住城市：</span>
-                <input type="text"></br>
-                <span>
+                    <input type="text" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="row">
+                    <span class="col-sm-1 col-md-1 col-lg-1">
                     个人简历：</span>
-                <textarea cols="90" rows="4"></textarea></br>
-                <button class='btn-danger btn-lg joinbtn'>加入我们</button>
+                    <!-- <input type="textarea" rows="4"> -->
+                    <textarea cols="90" rows="4" class="col-sm-5 col-md-5 col-lg-5" placeholder="请填写个人工作经验及简历" ></textarea>
+                </div>
+
+                <button class='btn-danger joinbtn col-sm-offset-1 col-md-offset-1 col-lg-offset-1'>加入</button>
             </div>
-
-
         </div>
         <script type="text/javascript">
         $(document).ready(function() {
