@@ -208,6 +208,30 @@
           padding-bottom: 2%;
       }
       
+      .pagination {
+          padding-right: 5%;
+          float: right;
+      }
+      
+      .pagination>li>a,
+      .pagination>li>span {
+          border: 0px;
+          color: Gray;
+          font-size: 1em;
+      }
+      
+      .pagination>.active>a:hover,
+      .pagination>.active>span:hover {
+          background-color: LightGray;
+          font-size: 1em;
+      }
+      
+      .pagination>.active>a,
+      .pagination>.active>span {
+          background-color: DarkGrey;
+          font-size: 1em;
+      }
+      
       .footer {
           height: 15%;
           /*position: relative;*/
@@ -224,7 +248,7 @@
           background-color: #293134;
           max-height: 14%;
           color: white;
-          padding-bottom: 2%;
+          padding-bottom: 1%;
       }
       
       .footercontent {
