@@ -99,24 +99,27 @@
         margin-left: 2%;
         margin-right: 2%;
     }
-    .pagination{
+    
+    .pagination {
         padding-right: 5%;
         float: right;
     }
+    
     .pagination>li>a,
     .pagination>li>span {
         border: 0px;
         color: Gray;
         font-size: 1em;
     }
+    
     .pagination>.active>a:hover,
     .pagination>.active>span:hover {
         background-color: LightGray;
         font-size: 1em;
     }
+    
     .pagination>.active>a,
-    .pagination>.active>span
-     {
+    .pagination>.active>span {
         background-color: DarkGrey;
         font-size: 1em;
     }
@@ -213,7 +216,7 @@
                 <li><a href="aboutus.html">加入我们</a></li>
         </nav>
     </div>
-    <div class="page" ng-app="myApp" ng-controller="PageCtrl">
+    <div class="row page" ng-app="myApp" ng-controller="PageCtrl">
         <div class="sidebar">
             <ul class="nav nav-sidebar">
                 <li>
@@ -250,6 +253,23 @@
                     <hr>
                 </div>
                 <pagination ng-show="paginationShow" page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="footarea1"></div>
+        <div class="footarea2 container-fluid">
+            <div class="row footercontent">
+                <div class="foottext">
+                    <span>联系我们</span>
+                    <br>
+                    <span>Email:hxy@hxy.com | Phone:+86 123456789 | Wechat: hayteam</span>
+                    <hr class="foothr">
+                    <span>Copyright 1998-2015 Cainiao, All Rights Reserved.菜鸟公司版权所有</span>
+                </div>
+                <div class="footimg">
+                    <img src="img/qrcode.jpg" class="qrcode img-responsive">
+                </div>
             </div>
         </div>
     </div>
