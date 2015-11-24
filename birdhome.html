@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CaiBird</title>
+    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
+    </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/indexcss.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+    <style type="text/css">
+    .active {
+        color: red;
+    }
+    
+    a {
+        color: grey;
+    }
+    
+    body {
+        text-align: center;
+    }
+    
+    .itemtext {
+        font-size: 1.6em;
+        padding-bottom: 0px;
+    }
+    
+    hr {
+        /*margin: 1%;*/
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 1%;
+        width: 95%;
+    }
+    
+    .page {
+        width: 70%;
+        margin: 0 auto;
+        text-align: left;
+        display: block;
+    }
+    
+    .sidebar {
+        background-color: #ffffff;
+        width: 17%;
+        padding-left: 2%;
+        margin-right: 2%;
+        border: 1px solid #DBDBDB;
+        float: left;
+        overflow-y: auto;
+    }
+    
+    .contentarea {
+        width: 78%;
+        margin: 0 auto;
+        float: right;
+        border: 1px solid #DBDBDB;
+        margin-bottom: 2%;
+    }
+    
+    .imgrow {
+        padding-top: 3%;
+        text-align: center;
+    }
+    </style>
+    <script>
+    var app = angular.module('myApp', ['ui.bootstrap']);
+
+    app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
+
+        $http.get('http://121.40.113.6/cbws/GetBirdDetail?id=1').success(function(data) {
+            $scope.details = data;
+
+        });
+
+
+    }]);
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="row titlehead">
+            <img src="img/logo.png" class="imglogo">
+        </div>
+        <nav class="navbar navhome">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">首页</a></li>
+                <li class="active"><a href="design.html">设计</a></li>
+                <li><a href="photo.html">摄像</a></li>
+                <li><a href="it.html">IT</a></li>
+                <li><a href="caibird.html">菜鸟课堂</a></li>
+                <li><a href="#">项目申请</a></li>
+                <li><a href="oldbird.html">老鸟客厅</a></li>
+                <li><a href="aboutus.html">加入我们</a></li>
+        </nav>
+    </div>
+    <div class="row page">
+        <div class="sidebar">
+            <ul class="nav nav-sidebar">
+                <li>
+                    <h2><a href="it.html" class="active">设计老鸟</a></h2></li>
+                <hr/>
+                <li>
+                    <h2><a href="#">影像老鸟</a></h2></li>
+                <hr/>
+                <li>
+                    <h2><a href="#">IT老鸟</a></h2></li>
+            </ul>
+        </div>
+        <div class="contentarea">
+            <hr>
+            <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+                <div class="row imgrow">
+                    <img src="img/birdimg1.jpg" alt="" class="img-responsive col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <hr style="width:80%;margin-left:9%">
+                </div>
+                <div class="row col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align:center">
+                    <h2>{{details.name}}</h2>
+                    <p>{{details.skill}}</p>
+                </div>
+                <div class="row col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <h2></h2>
+                </div>
+                <div class="row col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <h2 style="color:red">江湖传闻</h2>
+                </div>
+                <div class="row col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <p style="line-height:2; margin-bottom: 4%">
+                    {{details.birdLongtext}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="footarea1"></div>
+        <div class="footarea2 container-fluid">
+            <div class="row footercontent">
+                <div class="foottext">
+                    <span>联系我们</span>
+                    <br>
+                    <span>Email:hxy@hxy.com | Phone:+86 123456789 | Wechat: hayteam</span>
+                    <hr class="foothr">
+                    <span>Copyright 1998-2015 Cainiao, All Rights Reserved.菜鸟公司版权所有</span>
+                </div>
+                <div class="footimg">
+                    <img src="img/qrcode.jpg" class="qrcode img-responsive">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
