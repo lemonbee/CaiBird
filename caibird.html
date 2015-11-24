@@ -81,7 +81,7 @@
 
     app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
         $scope.items = [{
-            id: "0001",
+            id: "L001",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -89,7 +89,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0002",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -97,7 +97,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0003",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -105,7 +105,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0004",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -113,7 +113,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0005",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -121,7 +121,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0006",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -129,7 +129,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0007",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -137,7 +137,7 @@
             address: "上海市浦东新区XX酒店",
             imgUrl: "img/course.png"
         }, {
-            id: "0008",
+            id: "L002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
@@ -202,7 +202,7 @@
                     <div class="imgblock">
                         <img class="img-responsive itemimg" src="img/course.png" alt=""></div>
                     <div class="itemdesc">
-                        <p class="itemtext">课程名称：{{itemline.name}}</p>
+                        <p class="itemtext"><a href="courses.html?id={{itemline.id}}">课程名称：{{itemline.name}}</p></a>
                         <p class="itemtext">课程讲师：{{itemline.teacher}}</p>
                         <p class="itemtext">课程介绍：{{itemline.intro}}</p>
                         <hr class="coursehr">
