@@ -99,6 +99,8 @@
         margin-left: 2%;
         margin-right: 2%;
     }
+    
+
     </style>
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
@@ -114,70 +116,63 @@
         };
     });
 
-    app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
-        $scope.items = [{
-            itemTitle: "幼师口袋",
-            headCount: "5人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "阿里云计划",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "去哪儿携程",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "辣妹狂拍",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }];
+    app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, $http, filterFilter) {
 
-        // create empty search model (object) to trigger $watch on update
-        $scope.search = {};
+        $http.get('http://121.40.113.6/api/GetTagSet?projectType=IT').success(function(data) {
+            $scope.tagitems = data;
+        });
 
-        $scope.resetFilters = function() {
-            // needs to be a function or it won't trigger a $watch
-            $scope.search = {};
-        };
-
-        // pagination controls
-        $scope.currentPage = 1;
-        $scope.totalItems = $scope.items.length;
-        $scope.entryLimit = 5; // items per page
-        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-
-        // $watch search to update pagination
-        $scope.$watch('search', function(newVal, oldVal) {
-            $scope.filtered = filterFilter($scope.items, newVal);
-            $scope.totalItems = $scope.filtered.length;
-            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+        $http.get('http://121.40.113.6/api/GetProjectSet?projectType=IT').success(function(data) {
+            $scope.items = data;
+            // pagination controls
             $scope.currentPage = 1;
-        }, true);
+            $scope.totalItems = $scope.items.length;
+            $scope.entryLimit = 5; // items per page
+            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+            if ($scope.noOfPages < 2) {
+                $scope.paginationShow = false;
+            } else {
+                $scope.paginationShow = true;
+            };
+
+
+            // create empty search model (object) to trigger $watch on update
+            $scope.search = {};
+
+            $scope.resetFilters = function() {
+                // needs to be a function or it won't trigger a $watch
+                $scope.search = {};
+            };
+
+
+            // $watch search to update pagination
+            $scope.$watch('search', function(newVal, oldVal) {
+                $scope.filtered = filterFilter($scope.items, newVal);
+                $scope.totalItems = $scope.filtered.length;
+                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+                $scope.currentPage = 1;
+                if ($scope.noOfPages < 2) {
+                    $scope.paginationShow = false;
+                } else {
+                    $scope.paginationShow = true;
+                };
+            }, true);
+
+        });
+
+        $scope.dipbyTagV = function(name) {
+            // alert("Hello Alice");
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=IT&tagv=' + name).success(function(data) {
+                $scope.items = data;
+                $scope.totalItems = $scope.items.length;
+                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+                if ($scope.noOfPages < 2) {
+                    $scope.paginationShow = false;
+                } else {
+                    $scope.paginationShow = true;
+                };
+            });
+        };
     }]);
     </script>
 </head>
@@ -190,7 +185,7 @@
         <nav class="navbar navhome">
             <ul class="nav navbar-nav">
                 <li><a href="index.html">首页</a></li>
-                <li><a href="design.html">设计</a></li>
+                <li><a href="design.html" >设计</a></li>
                 <li><a href="photo.html">摄像</a></li>
                 <li><a href="it.html" class="active">IT</a></li>
                 <li><a href="caibird.html">菜鸟课堂</a></li>
@@ -199,23 +194,19 @@
                 <li><a href="aboutus.html">加入我们</a></li>
         </nav>
     </div>
-    <div class="row page">
+    <div class="row page" ng-app="myApp" ng-controller="PageCtrl">
         <div class="sidebar">
             <ul class="nav nav-sidebar">
                 <li>
-                    <h2><a href="it.html" class="active">全部</a></h2></li>
+                    <h2><a href="design.html" class="active">全部</a></h2></li>
                 <hr/>
-                <li>
-                    <h2><a href="#">IOS项目</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="#">安卓项目</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="#">JAVA项目</a></h2></li>
-                <hr/>
-                <li>
-                    <h2><a href="#">PHP项目</a></h2></li>
+                <div ng-repeat="tag in tagitems">
+                    <li>
+                        <h2 ng-click="dipbyTagV(tag.tag)">{{tag.tag}}</h2></li>
+                    <!-- <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li> -->
+                    <!-- <button ng-click="dipbyTagV()">Test </button> -->
+                    <hr/>
+                </div>
             </ul>
         </div>
         <div class="contentarea">
@@ -228,7 +219,7 @@
                 </div>
             </div>
             <hr>
-            <div ng-app="myApp" ng-controller="PageCtrl" class="items">
+            <div class="items">
                 <div class="item" ng-repeat="itemline in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                     <img class="img-responsive itemimg" src="img/design1.png" alt="">
                     <div class="itemdesc">
@@ -239,7 +230,7 @@
                     </div>
                     <hr>
                 </div>
-                <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+                <pagination ng-show="paginationShow" page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
             </div>
         </div>
     </div>
