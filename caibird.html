@@ -19,7 +19,12 @@
         width: 70%;
         margin: 0 auto;
         padding: 1%;
+        min-width: 800px;
         background-color: #F7F7F7;
+    }
+    
+    a {
+        color: grey;
     }
     
     .itemimg {
@@ -43,17 +48,19 @@
     .item {
         margin-left: 2%;
         margin-right: 2%;
-        height:160px;
+        height: 160px;
         background: white;
         margin-bottom: 2%;
         border: 1px solid #C4C4C4;
     }
-    .imgblock{
+    
+    .imgblock {
         height: 160px;
         float: left;
     }
-    .coursehr{
-        margin:0;
+    
+    .coursehr {
+        margin: 0;
         opacity: 1;
         margin-bottom: 8px;
     }
@@ -74,53 +81,69 @@
 
     app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
         $scope.items = [{
+            id: "0001",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0002",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0003",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0004",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0005",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0006",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0007",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }, {
+            id: "0008",
             name: "客户设计体验",
             teacher: "阿娇和大桔",
             intro: "针对目标客户体验反馈和流程方面的问题解决方案和总结。",
             time: "2015-12-07 10:30～16:30 ",
-            address: "上海市浦东新区XX酒店"
+            address: "上海市浦东新区XX酒店",
+            imgUrl: "img/course.png"
         }];
 
         // create empty search model (object) to trigger $watch on update
@@ -162,7 +185,7 @@
                 <li><a href="design.html">设计</a></li>
                 <li><a href="photo.html">摄像</a></li>
                 <li><a href="it.html">IT</a></li>
-                <li class="active"><a href="caibird.html">菜鸟课堂</a></li>
+                <li><a href="caibird.html" class="active">菜鸟课堂</a></li>
                 <li><a href="apply.html">项目申请</a></li>
                 <li><a href="oldbird.html">老鸟客厅</a></li>
                 <li><a href="aboutus.html">加入我们</a></li>
