@@ -3,6 +3,7 @@
           margin: 0px;
           /*max-height: 100%;*/
           width: 100%;
+          min-width: 800px;
           position: static;
           background-color: #F7F7F7;
       }
@@ -73,6 +74,10 @@
           float: left;
       }
       
+      .active {
+          color: red;
+      }
+      
       .navhome {
           /*height: 10%;*/
           padding-bottom: 1%;
@@ -85,7 +90,7 @@
       }
       
       .nav>li>a {
-          color: grey;
+          /*color: grey;*/
           /*border-bottom: 2px solid #DBDBDB;*/
       }
       
