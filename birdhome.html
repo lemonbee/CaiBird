@@ -75,7 +75,7 @@
 
     app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
 
-        $http.get('http://121.40.113.6/cbws/GetBirdDetail?id=1').success(function(data) {
+        $http.get('http://121.40.113.6:8080/cbws/GetBirdDetail?id=1').success(function(data) {
             $scope.details = data;
 
         });
