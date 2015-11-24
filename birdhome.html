@@ -71,12 +71,16 @@
     }
     </style>
     <script>
-    var id=1;
+    function QueryString(item) {
+        var sValue = location.search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)", "i"))
+        return sValue ? sValue[1] : sValue
+    }
+    id = QueryString("id");
     var app = angular.module('myApp', ['ui.bootstrap']);
 
     app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
 
-        $http.get('http://121.40.113.6/api/GetBirdDetail?id='+id).success(function(data) {
+        $http.get('http://121.40.113.6/api/GetBirdDetail?id=' + id).success(function(data) {
             $scope.details = data;
 
         });
@@ -135,7 +139,7 @@
                 </div>
                 <div class="row col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
                     <p style="line-height:2; margin-bottom: 4%">
-                    {{details.birdLongtext}}
+                        {{details.birdLongtext}}
                     </p>
                 </div>
             </div>
