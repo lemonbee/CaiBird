@@ -71,11 +71,12 @@
     }
     </style>
     <script>
+    var id=1;
     var app = angular.module('myApp', ['ui.bootstrap']);
 
     app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
 
-        $http.get('http://121.40.113.6/api/GetBirdDetail?id=1').success(function(data) {
+        $http.get('http://121.40.113.6/api/GetBirdDetail?id='+id).success(function(data) {
             $scope.details = data;
 
         });
