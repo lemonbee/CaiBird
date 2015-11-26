@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="348261d2-287c-42ea-8a3c-6ed0e987edcc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design.html" afterPath="$PROJECT_DIR$/design.html" />
-    </list>
+    <list default="true" id="348261d2-287c-42ea-8a3c-6ed0e987edcc" name="Default" comment="" />
     <ignored path="CaiBird.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,9 +24,13 @@
       <file leaf-file-name="design.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/design.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6441718">
-              <caret line="166" column="6" selection-start-line="166" selection-start-column="6" selection-end-line="166" selection-end-column="6" />
-              <folding />
+            <state vertical-scroll-proportion="1.3803681">
+              <caret line="198" column="6" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
+              <folding>
+                <marker date="1448379392000" expanded="true" signature="1938:1987" placeholder="{...}" />
+                <marker date="1448379392000" expanded="true" signature="2008:2041" placeholder="{...}" />
+                <marker date="1448379392000" expanded="true" signature="2057:2115" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +166,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="43" width="1400" height="773" extended-state="1" />
+    <frame x="20" y="43" width="1400" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -206,7 +208,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1448379392000" expanded="true" signature="1938:1987" placeholder="{...}" />
+            <marker date="1448379392000" expanded="true" signature="2008:2041" placeholder="{...}" />
+            <marker date="1448379392000" expanded="true" signature="2057:2115" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -219,9 +225,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/design.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6441718">
-          <caret line="166" column="6" selection-start-line="166" selection-start-column="6" selection-end-line="166" selection-end-column="6" />
-          <folding />
+        <state vertical-scroll-proportion="1.3803681">
+          <caret line="198" column="6" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
+          <folding>
+            <marker date="1448379392000" expanded="true" signature="1938:1987" placeholder="{...}" />
+            <marker date="1448379392000" expanded="true" signature="2008:2041" placeholder="{...}" />
+            <marker date="1448379392000" expanded="true" signature="2057:2115" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
