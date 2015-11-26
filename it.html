@@ -161,10 +161,10 @@
 
         });
 
-        $scope.dipbyTagV = function(name) {
-            $scope.currentId = name;
+        $scope.dipbyTagV = function(tag) {
+         
             // alert("Hello Alice");
-            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=IT&tagv=' + name).success(function(data) {
+            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=IT&tagv=' + tag.name).success(function(data) {
                 $scope.items = data;
                 $scope.totalItems = $scope.items.length;
                 $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
@@ -205,7 +205,7 @@
                 <hr/>
                 <div ng-repeat="tag in tagitems">
                     <li>
-                        <h2 ng-class="active: currentId == tag.tag" ng-click="dipbyTagV(tag.tag)">{{tag.tag}}</h2></li>
+                        <h2 ng-click="dipbyTagV(tag)">{{tag.tag}}</h2></li>
                     <!-- <h2><a ng-click="dipbyTagV()">{{tag.tag}}</a></h2></li> -->
                     <!-- <button ng-click="dipbyTagV()">Test </button> -->
                     <hr/>
