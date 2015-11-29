@@ -106,10 +106,7 @@
             };
             var config = {
                 params: {
-                    courseid: 'test',
-                    name: $scope.user.name,
-                    phone: $scope.user.phone,
-                    email: $scope.user.mail
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 }
             };
             $http.post('http://121.40.113.6/api/RegCourse', postData, config).success(
