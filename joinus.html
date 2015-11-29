@@ -109,10 +109,10 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 }
             };
-            $http.post('http://121.40.113.6/api/RegCourse', postData, config).success(
-                function(data, status, headers, config) {
+            $.post('http://121.40.113.6/api/RegCourse', postData).success(
+                function(data, status, headers) {
                     alert('success');
-                }).error(function(data, status, headers, config) {
+                }).error(function(data, status, headers) {
                 alert("WTF");
             });
 
