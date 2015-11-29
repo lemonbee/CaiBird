@@ -98,7 +98,7 @@
         $scope.joinus = function() {
 
             var postData = {
-                courseid: 'test',
+                courseid: 'L001',
                 name: $scope.user.name,
                 phone: $scope.user.phone,
                 email: $scope.user.mail
@@ -106,13 +106,15 @@
             };
             var config = {
                 params: {
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    },
                 }
             };
 
-$.post('http://121.40.113.6/api/RegCourse', postData, function(data){
-    alert('success');
-})
+            $.post('http://121.40.113.6/api/RegCourse', postData, function() {
+                alert('success');
+            })
 
             // $.post('http://121.40.113.6/api/RegCourse', postData).success(
             //     function(data, status, headers) {
