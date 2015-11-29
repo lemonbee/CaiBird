@@ -109,12 +109,17 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 }
             };
-            $.post('http://121.40.113.6/api/RegCourse', postData).success(
-                function(data, status, headers) {
-                    alert('success');
-                }).error(function(data, status, headers) {
-                alert("WTF");
-            });
+
+$.post('http://121.40.113.6/api/RegCourse', postData, function(data){
+    alert('success');
+})
+
+            // $.post('http://121.40.113.6/api/RegCourse', postData).success(
+            //     function(data, status, headers) {
+            //         alert('success');
+            //     }).error(function(data, status, headers) {
+            //     alert("WTF");
+            // });
 
         }
 
