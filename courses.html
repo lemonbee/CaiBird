@@ -47,7 +47,6 @@
         display: block;
         color: #8A8A8A
     }
-
     
     .register {
         width: 100%;
@@ -56,23 +55,21 @@
         float: right;
         border: 1px solid #DBDBDB;
     }
-
-  
     
     .rowitem {
         padding-top: 1.5%;
         padding-bottom: 1.5%;
         font-size: 1.4em;
-        color:grey;
+        color: grey;
     }
     
     .applytitle {
         text-align: center;
         font-size: 1.5em;
         padding-bottom: 1%;
-        color:grey;
+        color: grey;
     }
-
+    
     .joinbtn {
         /*margin-left: 22%;*/
         margin-top: 3%;
@@ -86,70 +83,33 @@
     var app = angular.module('myApp', ['ui.bootstrap']);
 
 
-    app.filter('startFrom', function() {
-        return function(input, start) {
-            if (input) {
-                start = +start;
-                return input.slice(start);
-            }
-            return [];
-        };
-    });
+    app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
+        $scope.dispmsg = false;
 
-    app.controller('PageCtrl', ['$scope', 'filterFilter', function($scope, filterFilter) {
-        $scope.items = [{
-            itemTitle: "去哪儿携程",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "幼师口袋",
-            headCount: "5人",
-            timeLength: "3个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "阿里云计划",
-            headCount: "18人",
-            timeLength: "3个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "辣妹狂拍",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }, {
-            itemTitle: "福特终端系统",
-            headCount: "4人",
-            timeLength: "2个月",
-            itemLongtext: "幼师口袋是一个专注面向幼儿园老师群体的媒体和社区，通过微信公众号提供幼儿园区角布置、教具玩具制作等实用信息。"
-        }];
+        $scope.joinus = function() {
 
-        // create empty search model (object) to trigger $watch on update
-        $scope.search = {};
+            var postData = {
+                username: $scope.user.name,
+                userphone: $scope.user.phone,
+                useremail: $scope.user.mail
 
-        $scope.resetFilters = function() {
-            // needs to be a function or it won't trigger a $watch
-            $scope.search = {};
-        };
+            };
+            var config = {
+                params: {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    },
+                }
+            };
 
-        // pagination controls
-        $scope.currentPage = 1;
-        $scope.totalItems = $scope.items.length;
-        $scope.entryLimit = 5; // items per page
-        $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+            $.post('http://121.40.113.6/api/RegCourse', postData, function() {
+                $scope.dispmsg = true;
+                $scope.$apply();
 
-        // $watch search to update pagination
-        $scope.$watch('search', function(newVal, oldVal) {
-            $scope.filtered = filterFilter($scope.items, newVal);
-            $scope.totalItems = $scope.filtered.length;
-            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-            $scope.currentPage = 1;
-        }, true);
+            });
+        }
+
+
     }]);
     </script>
 </head>
@@ -187,20 +147,20 @@
             <div class="row rowitem">
                 <span class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     姓名：</span>
-                <input type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <input ng-model="user.name" type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             </div>
             <div class="row rowitem">
                 <span class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     手机：</span>
-                <input type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <input ng-model="user.phone" type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             </div>
             <div class="row rowitem">
                 <span class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     邮箱：</span>
-                <input type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <input ng-model="user.email" type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             </div>
-            <button class='btn-danger joinbtn col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5'>立即报名</button>
-            <p style="text-align: center; margin-left: 3%; color:darkgrey">ps: 工作人员会与您取得联系</p>
+            <button class='btn-danger joinbtn col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5' ng-disabled="dispmsg">立即报名</button>
+            <p style="text-align: center; margin-left: 3%; color:darkgrey" ng-show="dispmsg">ps: 工作人员会与您取得联系</p>
         </div>
     </div>
     <div class="row footer">
