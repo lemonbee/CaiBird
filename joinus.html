@@ -88,10 +88,13 @@
         width: 18%;
         font-size: 1.4em
     }
-    .joinbtn:disabled,.joinbtn:disabled:hover{
+    
+    .joinbtn:disabled,
+    .joinbtn:disabled:hover {
         background-color: grey;
     }
-    #notifymsg{
+    
+    #notifymsg {
         font-size: 1.1em;
         color: red;
         margin-left: 1%;
@@ -126,10 +129,11 @@
             $.post('http://121.40.113.6/api/JoinUs', postData, function() {
                 //alert('success');
                 // $scope.notifymsg
-                $scope.dispmsg= true;
+                $scope.dispmsg = true;
+                $scope.$apply();
 
             });
-            $scope.$apply();
+
 
         }
 
