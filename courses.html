@@ -160,8 +160,8 @@
                     邮箱：</span>
                 <input ng-model="user.email" type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             </div>
-            <button class='btn-danger joinbtn col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5' ng-click="joinus()">立即报名</button>
-            <p style="text-align: center; margin-left: 3%; color:darkgrey">ps: 工作人员会与您取得联系</p>
+            <button class='btn-danger joinbtn col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5' ng-click="joinus()" ng-disabled="dispmsg">立即报名</button>
+            <p style="text-align: center; margin-left: 3%; color:red" ng-show="dispmsg">ps: 工作人员会与您取得联系</p>
         </div>
     </div>
     <div class="row footer">
