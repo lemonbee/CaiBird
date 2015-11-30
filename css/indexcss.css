@@ -283,6 +283,7 @@
       .foothr {
           opacity: 0.3;
           width: 65%;
+            margin: 0 auto;
           margin-left: 0;
       }
       
