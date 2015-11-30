@@ -210,7 +210,7 @@
                     <!-- <input type="textarea" rows="4"> -->
                     <textarea ng-model="user.intro" cols="90" rows="4" class="col-sm-5 col-md-5 col-lg-5" placeholder="请填写个人工作经验及简历"></textarea>
                 </div>
-                <button class='btn-danger joinbtn col-sm-offset-1 col-md-offset-1 col-lg-offset-1' ng-click="joinus()" ng-disabled="!dispmsg">加入</button>
+                <button class='btn-danger joinbtn col-sm-offset-1 col-md-offset-1 col-lg-offset-1' ng-click="joinus()" ng-disabled="dispmsg">加入</button>
                 <span id="notifymsg" ng-show="dispmsg">欢迎加入我们，工作人员会尽快联系您！</span>
             </form>
         </div>
