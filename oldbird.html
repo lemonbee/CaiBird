@@ -119,6 +119,14 @@
         background-color: DarkGrey;
         font-size: 1em;
     }
+    
+    .sideitem {
+        display: inline;
+    }
+    
+    .sideitem img {
+        display: inherit;
+    }
     </style>
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
@@ -231,13 +239,16 @@
         <div class="sidebar">
             <ul class="nav nav-sidebar">
                 <li>
-                    <h2><a href="it.html" class="active">设计老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/designicon.png" alt="" class="img-responsive"><a href="#" class="active">设计老鸟</a></div>
+                </li>
                 <hr/>
                 <li>
-                    <h2><a href="#">影像老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/photoicon.png" alt="" class="img-responsive"><a href="#">摄影老鸟</a></div>
+                </li>
                 <hr/>
                 <li>
-                    <h2><a href="#">IT老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/iticon.png" alt="" class="img-responsive"><a href="#">IT老鸟</a></div>
+                </li>
             </ul>
         </div>
         <div class="contentarea">
