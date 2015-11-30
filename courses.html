@@ -78,6 +78,12 @@
         width: 18%;
         font-size: 1.3em
     }
+
+    #notifymsg {
+        font-size: 1.1em;
+        color: red;
+        margin-left: 1%;
+    }
     </style>
     <script>
     var app = angular.module('myApp', ['ui.bootstrap']);
@@ -133,7 +139,7 @@
         </nav>
     </div>
     <div class="row page" ng-app="myApp" ng-controller="PageCtrl">
-        <div >
+        <div>
             <img class="img-responsive" src="img/courseimg.png" alt="">
             <h2 class="coursename"><span>课程名称：</span><span>客户体验设计</span></h2>
             <h2><span>课程讲师：</span><span>客户体验设计</span></h2>
@@ -161,7 +167,7 @@
                 <input ng-model="user.email" type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             </div>
             <button class='btn-danger joinbtn col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5' ng-click="joinus()" ng-disabled="dispmsg">立即报名</button>
-            <p style="text-align: center; margin-left: 3%; color:red" ng-show="dispmsg">ps: 工作人员会与您取得联系</p>
+            <p class="notifymsg" ng-show="dispmsg"> 工作人员会与您取得联系</p>
         </div>
     </div>
     <div class="row footer">
