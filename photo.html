@@ -6,14 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CaiBird</title>
-    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
-    </script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/indexcss.css">
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
     <style type="text/css">
     .active {
         color: red;
@@ -99,81 +93,8 @@
         margin-left: 2%;
         margin-right: 2%;
     }
-    
-
     </style>
     <script>
-    var app = angular.module('myApp', ['ui.bootstrap']);
-
-
-    app.filter('startFrom', function() {
-        return function(input, start) {
-            if (input) {
-                start = +start;
-                return input.slice(start);
-            }
-            return [];
-        };
-    });
-
-    app.controller('PageCtrl', ['$scope', '$http', 'filterFilter', function($scope, $http, filterFilter) {
-
-        $http.get('http://121.40.113.6/api/GetTagSet?projectType=PHOTO').success(function(data) {
-            $scope.tagitems = data;
-        });
-
-        $http.get('http://121.40.113.6/api/GetProjectSet?projectType=PHOTO').success(function(data) {
-            $scope.items = data;
-            // pagination controls
-            $scope.currentPage = 1;
-            $scope.totalItems = $scope.items.length;
-            $scope.entryLimit = 5; // items per page
-            $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-            if ($scope.noOfPages < 2) {
-                $scope.paginationShow = false;
-            } else {
-                $scope.paginationShow = true;
-            };
-
-
-            // create empty search model (object) to trigger $watch on update
-            $scope.search = {};
-
-            $scope.resetFilters = function() {
-                // needs to be a function or it won't trigger a $watch
-                $scope.search = {};
-            };
-
-
-            // $watch search to update pagination
-            $scope.$watch('search', function(newVal, oldVal) {
-                $scope.filtered = filterFilter($scope.items, newVal);
-                $scope.totalItems = $scope.filtered.length;
-                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-                $scope.currentPage = 1;
-                if ($scope.noOfPages < 2) {
-                    $scope.paginationShow = false;
-                } else {
-                    $scope.paginationShow = true;
-                };
-            }, true);
-
-        });
-
-        $scope.dipbyTagV = function(name) {
-            // alert("Hello Alice");
-            $http.get('http://121.40.113.6/api/GetProjectSet?projectType=PHOTO&tagv=' + name).success(function(data) {
-                $scope.items = data;
-                $scope.totalItems = $scope.items.length;
-                $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-                if ($scope.noOfPages < 2) {
-                    $scope.paginationShow = false;
-                } else {
-                    $scope.paginationShow = true;
-                };
-            });
-        };
-    }]);
     </script>
 </head>
 
@@ -185,7 +106,7 @@
         <nav class="navbar navhome">
             <ul class="nav navbar-nav">
                 <li><a href="index.html">首页</a></li>
-                <li><a href="design.html" >设计</a></li>
+                <li><a href="design.html">设计</a></li>
                 <li><a href="photo.html" class="active">摄像</a></li>
                 <li><a href="it.html">IT</a></li>
                 <li><a href="caibird.html">菜鸟课堂</a></li>
@@ -251,6 +172,13 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+    <script src="controller/photoCtrl.js" type="text/javascript"></script>
 </body>
 
 </html>

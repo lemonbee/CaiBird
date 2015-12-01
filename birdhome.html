@@ -6,14 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CaiBird</title>
-    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
-    </script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/indexcss.css">
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
     <style type="text/css">
     .active {
         color: red;
@@ -69,25 +63,15 @@
         padding-top: 3%;
         text-align: center;
     }
-    </style>
-    <script>
-    function QueryString(item) {
-        var sValue = location.search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)", "i"))
-        return sValue ? sValue[1] : sValue
+
+    .sideitem {
+        display: inline;
     }
-    id = QueryString("id");
-    var app = angular.module('myApp', ['ui.bootstrap']);
-
-    app.controller('PageCtrl', ['$scope', '$http', function($scope, $http) {
-
-        $http.get('http://121.40.113.6/api/GetBirdDetail?id=' + id).success(function(data) {
-            $scope.details = data;
-
-        });
-
-
-    }]);
-    </script>
+    
+    .sideitem img {
+        display: inherit;
+    }
+    </style>
 </head>
 
 <body>
@@ -102,7 +86,7 @@
                 <li><a href="photo.html">摄像</a></li>
                 <li><a href="it.html">IT</a></li>
                 <li><a href="caibird.html">菜鸟课堂</a></li>
-                <li><a href="#">项目申请</a></li>
+                <li><a href="apply.html">项目申请</a></li>
                 <li class="active"><a href="oldbird.html">老鸟客厅</a></li>
                 <li><a href="aboutus.html">加入我们</a></li>
         </nav>
@@ -111,13 +95,16 @@
         <div class="sidebar">
             <ul class="nav nav-sidebar">
                 <li>
-                    <h2><a href="it.html" class="active">设计老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/designicon.png" alt="" class="img-responsive"><a href="#" class="active">设计老鸟</a></div>
+                </li>
                 <hr/>
                 <li>
-                    <h2><a href="#">影像老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/photoicon.png" alt="" class="img-responsive"><a href="#">摄影老鸟</a></div>
+                </li>
                 <hr/>
                 <li>
-                    <h2><a href="#">IT老鸟</a></h2></li>
+                    <div class="sideitem row"><img src="img/iticon.png" alt="" class="img-responsive"><a href="#">IT老鸟</a></div>
+                </li>
             </ul>
         </div>
         <div class="contentarea">
@@ -162,6 +149,14 @@
             </div>
         </div>
     </div>
+     <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+    <script src="controller/birdhomeCtrl.js" type="text/javascript"></script>
 </body>
 
 </html>
