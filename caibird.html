@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CaiBird</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/indexcss.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+    <script src="controller/caibirdCtrl.js" type="text/javascript"></script>
     <style type="text/css">
     .contentarea {
         width: 70%;
@@ -93,11 +97,11 @@
                         <img class="img-responsive itemimg" src="img/course.png" alt=""></div>
                     <div class="itemdesc">
                         <p class="itemtext"><a href="courses.html?id={{itemline.id}}">课程名称：{{itemline.name}}</p></a>
-                        <p class="itemtext">课程讲师：{{itemline.teacher}}</p>
-                        <p class="itemtext">课程介绍：{{itemline.intro}}</p>
-                        <hr class="coursehr">
-                        <p class="itemtext">时间：{{itemline.time}}</p>
-                        <p class="itemtext">地点：{{itemline.address}}</p>
+                            <p class="itemtext">课程讲师：{{itemline.teacher}}</p>
+                            <p class="itemtext">课程介绍：{{itemline.intro}}</p>
+                            <hr class="coursehr">
+                            <p class="itemtext">时间：{{itemline.time}}</p>
+                            <p class="itemtext">地点：{{itemline.address}}</p>
                     </div>
                 </div>
                 <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
@@ -122,13 +126,6 @@
         </div>
     </div>
     </div>
-    <script type="text/javascript" language="JavaScript" src="js/jquery-1.9.1.js">
-    </script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/indexjs.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
-    <script src="controller/caibirdCtrl.js" type="text/javascript"></script>
 </body>
 
 </html>
